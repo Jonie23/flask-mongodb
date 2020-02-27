@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% include "includes/navbar.html" %} {% block
+content %}
+<h2>User Information</h2>
+
+{% for user in users %}
+<!--description list tag(dl) which contains a term and a description
+a description list is like other lists 
+but each list items contains two entries; 
+a term(dt) and a description(dd)
+-->
+<dl>
+  <dt>User ID: {{user.userID}}</dt>
+  <dd>First Name: {{user.firstName}}</dd>
+  <dd>Last Name: {{user.lastName}}</dd>
+  <dd>Password: {{user.password}}</dd>
+</dl>
+
+{% else %}
+
+<h3>No users found</h3>
+
+
+{% endfor %} {% endblock %} {% include "includes/footer.html" %}

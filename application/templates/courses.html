@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% include "includes/navbar.html" %}
+
+{% block content %}
+<!--
+<div class="container">
+<h1 class="text-danger"> Course Offerings </h1>
+<h5>Term: Cohort 1 2020</h5>
+
+
+<table class="table">
+<thead>
+ <tr>
+    <th>Course ID </th>
+    <th> Title </th>
+    <th> Descritption</th>
+    <th> Duration </th>
+    <th>Term </th>
+    <th>Enroll</th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+    <td>1111</td>
+    <td>Christian Leadership</td>
+    <td>Learn how to lead the people to follow</td>
+    <td>3 months</td>
+    <td>Cohort 1</td>
+    <td><button type="button" class="btn btn-danger">Enroll</button></td>
+</tr>
+<tr>
+        <td>2222</td>
+        <td>Kingdom Lifestyle</td>
+        <td>Learn about the kingdom of God</td>
+        <td>6 months</td>
+        <td>Cohort 1</td>
+        <td><button type="button" class="btn btn-danger">Enroll</button></td>
+</tr>
+<tr>
+        <td>3333</td>
+        <td>Evangelism</td>
+        <td>Learn how to win souls in the 21st century</td>
+        <td>3 months</td>
+        <td>Cohort 1</td>
+        <td><button type="button" class="btn btn-danger">Enroll</button></td>
+</tr>
+<tr>
+        <td>4444</td>
+        <td>Apologetics</td>
+        <td>Study to show yourself approved</td>
+        <td>3 months</td>
+        <td>Cohort 1</td>
+        <td><button type="button" class="btn btn-danger">Enroll</button></td>
+</tr>
+<tr>
+        <td>5555</td>
+        <td>The Holy Spirit</td>
+        <td>Learn about the Holy Spirit</td>
+        <td>2 months</td>
+        <td>Cohort 1</td>
+        <td><button type="button" class="btn btn-danger">Enroll</button></td>
+</tr>
+</tbody>
+
+   </table>
+</div>
+-->
+<div class="container">
+        <h1 class="text-danger"> Course Offerings </h1>
+        <h5>Term: Cohort 1 2020</h5>
+        
+        
+        <table class="table">
+        <thead>
+         <tr>
+            <th scope="col">Course ID </th>
+            <th scope="col"> Title </th>
+            <th scope="col"> Description</th>
+            <th scope="col"> Duration </th>
+            <th scope="col">Term </th>
+            <th scope="col">Enroll</th>
+         </tr>
+        </thead>
+
+        <tbody>
+            <!--Construct the rest of courses here -->
+            {% for data in courseInfo %}
+            <tr>
+                <td scope="row">{{data["courseID"]}}</td>
+                <td>{{data['title']}}</td>
+                <td>{{data['description']}}</td>
+                <td>{{data['duration']}}</td>
+                <td>{{data['term']}}</td>
+                <td>
+                    <form >
+                        <input type="hidden" name="courseID" value="{{data['courseID']}}">
+                        <input type="hidden" name="title" value="{{data['title']}}">
+                        <input type="hidden" name="term" value="{{data['term']}}">
+                        <button class="btn btn-danger">Enroll</button>
+                    </form>
+                </td>
+               
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+        
+            
+
+{% endblock %}
